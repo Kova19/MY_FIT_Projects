@@ -1,0 +1,76 @@
+\section{Příklad 5}
+% Jako parametr zadejte skupinu (A-H)
+\patyZadani{F}
+
+Nejdříve si vytvoříme rovnici podle II. Kirchhoffova zákona:
+    $$U_R + U_C - U = 0$$
+    $$R * I + U_C - U = 0$$
+
+Z těchto rovnic vyjádříme proud \textit{I}:
+    $$I = \frac{U - U_C}{R}$$
+
+Sestavíme si rovnici pro $u'_c$:
+    $$u'_c = \frac{1}{C} * I$$
+
+Vytvoříme si diferenciální rovnici:
+    $$u'_c = \frac{U - U_c}{R * C} = \frac{22 - U_C}{5 * 10}$$
+    $$u'_c + U_c * \frac{1}{50} = \frac{22}{50}$$
+
+Vypočítáme $\lambda$ z charakteristické rovnice:
+    $$\lambda + \frac{1}{R * C} = 0$$
+    $$\lambda + \frac{1}{50} = \mathbf{- \frac{1}{50}}$$
+
+Vyjádříme si očekávaný tvar rovnice:
+
+    $$u_c(t) = k(t)e^{\lambda * t}$$
+    $$u_c(t) = k(t)e^{-\frac{t}{50}}$$
+
+\newpage
+
+Dosadíme hodntoy do všeobecné rovnice a následně ji zderivujeme:
+    $$u'_c(t) = k'(t)e^{-\frac{t}{50}} + k(t) \Big(-\frac{1}{50}\Big) e^{-\frac{t}{50}}$$
+
+Hodnoty dosadíme do rovnice, kterou jsme si definovali:
+    $$u'_c + U_C \frac{1}{50} = \frac{22}{50}$$
+    $$k'(t)e^{-\frac{t}{50}} + k(t) \Big(-\frac{1}{50}\Big)e^{-\frac{t}{50}} + k(t) \Big(\frac{1}{50}\Big)e^{-\frac{t}{50}} = \frac{22}{50}$$
+    $$k'(t)e^{-\frac{t}{50}} = \frac{22}{50}$$
+
+Integrujeme a tím vyjádříme k(t):
+    $$k'(t) = \frac{22}{50e^{-\frac{t}{50}}} $$
+    $$k'(t) = \frac{22}{50}e^{\frac{t}{50}}$$ 
+    $$\int k'(t) = \int \frac{22}{50}e^{\frac{t}{50}}dt$$
+    $$k(t) = \frac{22}{50} \int e^{\frac{t}{50}}dt$$
+    $$k(t) = \frac{22}{50} * \frac{1}{\frac{1}{50}} e^{\frac{t}{50}} + K$$
+    $$k(t) = 22e^{\frac{t}{50}} + K$$
+
+Dosadíme k(t) do naší očekávané rovnice:
+    $$u_c(t) = (22e^{\frac{t}{50} + K} e^{-\frac{t}{50}}$$
+    $$u_c(t) = 22 + Ke^{-\frac{t}{50}}$$
+
+Vypočítáme K dle naší podmínky,kdy  $u_c(t) = 8V$, $t = 0$:
+    $$u_c(0) = 22 + Ke^0$$
+    $$8 = 22 + K$$
+    $$K = -14$$
+
+Dosadíme vypočítané K do rovnice pro $U'_c$:
+    $$\mathbf{u_c(t) = 22 - 14e^{-\frac{t}{50}}}$$
+
+Je důležité provést zkoušku:
+\newline
+
+Vyjádříme si $u'_c$
+
+    $$u'_c + U_c\frac{1}{50} = \frac{22}{50}$$
+    $$u_c(t) = 22 - 14e^{-\frac{t}{50}}$$
+    $$u'_c + \frac{22}{50} - \frac{14e^{-\frac{t}{50}}}{50} = \frac{22}{50}$$
+    $$u'_c = \frac{14e^{-\frac{t}{50}}}{50}$$
+
+\newpage
+
+Dosadíme $u'_c$ a $U_c$ do původní rovnice a upravíme, tak aby se pravá stran rovnala levé:
+
+    $$u'_c + U_c * \frac{1}{50} = \frac{22}{50}$$
+    $$\frac{14e^{-\frac{t}{50}}}{50} + \frac{22 - 14e^{-\frac{t}{50}}}{50} = \frac{22}{50}$$
+    $$\frac{14e^{0}}{50} + \frac{22 - 14e^{0}}{50} = \frac{22}{50}$$
+    $$\frac{22}{50} = \frac{22}{50}$$
+    $$\mathbf{0} = \mathbf{0}$$
