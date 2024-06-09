@@ -5,4 +5,7 @@ Welcome to my repository! Here you can find all the projects I've worked on duri
 ## Purpose
 The purpose of this repository is to keep track of my projects and provide easy access to them for future reference.
 
+## Don't steal!
+So we don't have to meet at the disciplinary committee, don't steal anything from here, thank you.
+
 Thank you for visiting!
