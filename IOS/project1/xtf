@@ -1,0 +1,398 @@
+#!/bin/bash
+# xkovacm01 
+# 6.3. 2024
+
+
+export POSIXLY_CORRECT=yes
+export LC_ALL=C
+
+
+after_date=""
+before_date=""
+currency=""
+file_count=0
+argc=${#}
+username=""
+nameposition=0
+command=""
+commandposition=0
+args=("$@")
+logs=()
+content=""
+
+help(){
+        echo "Filtr -a DATETIME vypisuje záznamy po tomto datu bez něj. DATETIME je formátu YYYY-MM-DD HH:MM:SS"
+        echo "Filtr -b DATETIME vypisuje záznamy pouze před tímto datem"
+        echo "Filtr -c CURRENCY vypisuje záznamy pouze k danné měně"$'\n'
+        
+        echo "Použití skriptu xtf [-h|--help] [FILTR] [PŘÍKAZ] UŽIVATEL LOG [LOG2 [...]"
+        echo "Příkaz list vypíše záznam pro daného uživatele"
+        echo "Příkaz list-currency vypíše seřatený seznam vyskytujícíh se měn"
+        echo "Příkaz status vypíše skutečný stav účtu seskupeného a seřazeného dle jednotlivých měn"
+        echo "Příkaz profit vypíše stav účtu zákazníka s fiktivním výnosem"
+
+        exit 0
+
+
+}
+
+profit_function(){
+        #Function for profit
+        if [ "$command" = profit ] 
+            then
+                #Function for profit without global variable XTF_PROFIT
+                if [ -z "$XTF_PROFIT" ]
+                then
+                echo "$content" | grep "$username" | awk -F';' '{
+                        # Zpracování hodnoty - pokud je kladná, vynásobíme ji 1.2
+                        if ($4 > 0) {
+                            $4 *= 1.2
+                        }
+                        value[$3] += $4
+                    }
+                    END { 
+                        # Výpis zpracovaných hodnot
+                        for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+                #END of function for profit without global variable XTF_PROFIT
+
+                #Function for profit with global variable XTF_PROFIT
+                elif [ -n "$XTF_PROFIT" ]
+                    then
+                        echo "$content" | grep "$username" | awk -v XTF_PROFIT="$XTF_PROFIT" -F';' '{
+                        # Zpracování hodnoty - pokud je kladná, vynásobíme ji 1.2
+                        if ($4 > 0) {
+                            $4 *= XTF_PROFIT
+                        }
+                        value[$3] += $4
+                    }
+                    END { 
+                        # Výpis zpracovaných hodnot
+                        for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+
+                fi
+                #END of function for profit with global variable XTF_PROFIT
+            fi | sort -u
+            #END Function for profit
+}
+
+if [ "$1" = --help ] || [ "$1" = -h ]
+then
+    help
+fi
+
+if [ -n "$XTF_PROFIT" ]
+    then
+        XTF_PROFIT=$(awk "BEGIN {printf \"%.2f\", $XTF_PROFIT / 100 + 1}")
+fi
+
+for arg in "${args[@]}"; do
+    if [ -f "$arg" ]; then
+        file_count=$((file_count + 1))
+                if [[ "$arg" == *.gz ]]; then
+                content+=$(gunzip -c "${arg}" || zcat "${arg}")
+
+    else
+        
+        content+="$(cat "$arg")"$'\n'
+    fi
+    fi
+    #new_args+=("$arg")
+done
+
+#set -- "${new_args[@]}"
+
+if [[ "$file_count" -eq 0 ]]
+    then
+    echo "Error: Check your argments there is no log" >&2
+    exit 1
+fi
+
+# Kontrola přítomnosti více commandů v argumentech
+commands=("status" "list" "profit" "list-currency")
+found=0
+
+# Procházení argumentů
+for arg in "$@"; do
+    # Procházení povolených commandů
+    for command in "${commands[@]}"; do
+        # Pokud je command nalezen v argumentu
+        if [[ "$arg" == "$command" ]]; then
+            # Pokud již byl nalezen dříve
+            if (( found == 1 )); then
+                echo "Error: Entered two exact commands or more commands!" >&2
+                exit 1
+            else
+                found=1
+            fi
+        fi
+    done
+done
+
+
+
+#Check log files if they are okay, continue
+for (( i = argc - file_count + 1; i <= argc; i++ ))
+do
+    log=${*:$i:1}
+    #Funciot for put all logs in one array
+    logs[i]+="$log"
+    
+    # Kontrola existence souboru
+    if [ ! -f "$log" ]; then
+        echo "Error: File $log not found." >&2
+        exit 1
+    fi
+
+    
+    while IFS=';' read -r col1 col2 col3 col4; do
+        
+        if [ -z "$col1" ] || [ -z "$col2" ] || [ -z "$col3" ] || [ -z "$col4" ]; then
+            echo "Error: In file $log is mistake." >&2
+            exit 1
+        fi
+
+        
+        if [[ ! $col2 =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}\ [0-9]{2}:[0-9]{2}:[0-9]{2}$ ]]; then
+            echo "Error: In file $log unvalid date format." >&2
+            exit 1
+        fi
+
+        
+
+    done < "$log"
+done
+
+nameposition=$((argc - file_count))
+commandposition=$((argc - file_count - 1))
+
+username=${*:nameposition:1}
+command=${*:commandposition:1}
+
+while getopts "a:b:c:" opt;
+do
+    case $opt in
+    a)
+        after_date=${OPTARG}
+        if [[ ! $after_date =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}\ [0-9]{2}:[0-9]{2}:[0-9]{2}$ ]]; then
+            echo "Error: Invalid date format." >&2
+            exit 1
+        fi
+
+            if [ "$command" = list ] || [ "$command" = "$username" ]
+            then
+                echo "$content" | awk -v username="$username" -v datetime="$after_date" '$1 == username && $2 > datetime'
+                exit 0
+            elif [ "$command" = status ]
+            then
+                echo "$content" | grep "$username" | awk -v datetime="$after_date" -F';' '
+                    $2 > datetime {
+                    count[$3]++;
+                    value[$3] += $4;
+                    }
+                    END {
+                        for (key in value) {
+                        printf "%s : %.4f\n", key, value[key];
+                        }
+                    }
+                ' | sort
+                exit 0
+            
+            elif [ "$command" = profit ]
+            then
+                #Function for profit without global variable XTF_PROFIT
+                if [ -z "$XTF_PROFIT" ]
+                then
+                echo "$content" | grep "$username" | awk -v datetime="$after_date" -F';' '{
+                        # Zpracování hodnoty - pokud je kladná, vynásobíme ji 1.2
+                        if ($2 > datetime){
+                        if ($4 > 0) {
+                            $4 *= 1.2
+                        }
+                        }
+                        value[$3] += $4
+                    }
+                    END { 
+                        # Výpis zpracovaných hodnot
+                        for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+                #END of function for profit without global variable XTF_PROFIT
+
+                #Function for profit with global variable XTF_PROFIT
+                elif [ -n "$XTF_PROFIT" ]
+                    then
+                        echo "$content" | grep "$username" | awk -v XTF_PROFIT="$XTF_PROFIT" -v datetime="$after_date" -F';' '{
+                            # Zpracování hodnoty - pokud je kladná a datum je větší než datetime, vynásobíme ji XTF_PROFIT
+                            if ($2 > datetime){
+                            if ($4 > 0) {
+                                $4 *= XTF_PROFIT
+                            }
+                            value[$3] += $4
+                            }
+                        }
+                        END { 
+                            # Výpis zpracovaných hodnot
+                            for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+                fi
+                #END of function for profit with global variable XTF_PROFIT
+            fi | sort -u
+            #END Function for profit
+        exit 0
+        ;;
+    b)
+        before_date=${OPTARG}
+        if [[ ! $before_date =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}\ [0-9]{2}:[0-9]{2}:[0-9]{2}$ ]]; then
+        echo "Error: Invalid date format." >&2
+            exit 1
+        fi
+
+
+            if [ "$command" = list ] || [ "$command" = "$username" ]
+            then
+                echo "$content" | awk -v username="$username" -v datetime="$before_date" '$1 == username && $2 < datetime'
+                exit 0
+            elif [ "$command" = status ]
+            then
+                echo "$content" | grep "$username" | awk -v datetime="$before_date" -F';' '
+                    $2 < datetime {
+                    count[$3]++;
+                    value[$3] += $4;
+                    }
+                    END {
+                        for (key in value) {
+                        printf "%s : %.4f\n", key, value[key];
+                        }
+                    }
+                ' | sort
+                exit 0
+            
+            elif [ "$command" = profit ]
+            then
+                #Function for profit without global variable XTF_PROFIT
+                if [ -z "$XTF_PROFIT" ]
+                then
+                echo "$content" | grep "$username" | awk -v datetime="$before_date" -F';' '{
+                        # Zpracování hodnoty - pokud je kladná, vynásobíme ji 1.2
+                        if ($2 < datetime){
+                        if ($4 > 0) {
+                            $4 *= 1.2
+                        }
+                        }
+                        value[$3] += $4
+                    }
+                    END { 
+                        # Výpis zpracovaných hodnot
+                        for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+                #END of function for profit without global variable XTF_PROFIT
+
+                #Function for profit with global variable XTF_PROFIT
+                elif [ -n "$XTF_PROFIT" ]
+                    then
+                        echo "$content" | grep "$username" | awk -v XTF_PROFIT="$XTF_PROFIT" -v datetime="$before_date" -F';' '{
+                            # Zpracování hodnoty - pokud je kladná a datum je větší než datetime, vynásobíme ji XTF_PROFIT
+                            if ($2 < datetime){
+                            if ($4 > 0) {
+                                $4 *= XTF_PROFIT
+                            }
+                            value[$3] += $4
+                            }
+                        }
+                        END { 
+                            # Výpis zpracovaných hodnot
+                            for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+                fi
+                #END of function for profit with global variable XTF_PROFIT
+            fi | sort -u
+            #END Function for profit
+        exit 0
+
+        ;;
+    c)
+        currency=${OPTARG}
+
+        if [ "$command" = profit ]
+            then
+                #Function for profit without global variable XTF_PROFIT
+                if [ -z "$XTF_PROFIT" ]
+                then
+                echo "$content" | grep -E "($username.*$currency)|($currency.*$username)" | awk -F';' '{
+                        # Zpracování hodnoty - pokud je kladná, vynásobíme ji 1.2
+                        if ($4 > 0) {
+                            $4 *= 1.2
+                        }
+                        value[$3] += $4
+                    }
+                    END { 
+                        # Výpis zpracovaných hodnot
+                        for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+                #END of function for profit without global variable XTF_PROFIT
+
+                #Function for profit with global variable XTF_PROFIT
+                elif [ -n "$XTF_PROFIT" ]
+                    then
+                        echo "$content" | grep -E "($username.*$currency)|($currency.*$username)" | awk -v XTF_PROFIT="$XTF_PROFIT" -F';' '{
+                        # Zpracování hodnoty - pokud je kladná, vynásobíme ji 1.2
+                        if ($4 > 0) {
+                            $4 *= XTF_PROFIT
+                        }
+                        value[$3] += $4
+                    }
+                    END { 
+                        # Výpis zpracovaných hodnot
+                        for (key in value) printf "%s : %.4f\n", key, value[key] 
+                        }' | sort -u
+
+                fi
+                #END of function for profit with global variable XTF_PROFIT
+            fi | sort -u
+            #END Function for profit
+            if [ ! "$command" == profit ]
+                then
+                echo "$content" | grep -E "($username.*$currency)|($currency.*$username)" | awk '{print $0}'
+            fi
+        exit 0
+
+        ;;
+    \?)
+        exit 0
+        ;;
+    esac
+done
+
+#Section for data withou flags
+
+if [ -z "$after_date" ] && [ -z "$before_date" ] && [ -z "$currency" ]
+    then
+
+        #functio for list or no command
+        if [ "$command" = list ] || [ "$command" = "$username" ]
+            then
+                log=${*:$i:1}
+                echo "$content" | grep "$username" | awk '{print $0}'
+        fi 
+        # End of list function
+
+        #Function for list-currency and status
+
+            if [ "$command" = list-currency ]
+            then
+                echo "$content" | grep "$username" | awk -F';' '{print $3}' | sort -u
+
+            elif [ "$command" = status ]
+            then
+                echo "$content" | grep "$username" | awk -F';' '{ value[$3] += $4 } END { for (key in value) printf "%s : %.4lf\n", key, value[key] }' | sort -u
+            fi
+        #END of list-currency funtion
+
+        #Function for profit
+        if [ "$command" = profit ]
+            then
+            profit_function
+        fi
+fi
+#END of section for data without flags
