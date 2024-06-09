@@ -1,0 +1,883 @@
+1: BUS: started
+2: BUS: arrived to 1
+3: BUS: leaving 1
+4: BUS: arrived to 2
+5: BUS: leaving 2
+6: BUS: arrived to 3
+7: L 1: started
+8: BUS: leaving 3
+9: L 1: arrived to 1
+10: BUS: arrived to 4
+11: BUS: leaving 4
+12: BUS: arrived to 5
+13: BUS: leaving 5
+14: BUS: arrived to final
+15: L 2: started
+16: BUS: arrived to final
+17: BUS: leaving final
+18: L 2: arrived to 5
+19: BUS: arrived to 1
+20: L 1: boarding
+21: BUS: leaving 1
+22: BUS: arrived to 2
+23: BUS: leaving 2
+24: L 3: started
+25: BUS: arrived to 3
+26: BUS: leaving 3
+27: BUS: arrived to 4
+28: BUS: leaving 4
+29: L 3: arrived to 4
+30: BUS: arrived to 5
+31: L 2: boarding
+32: BUS: leaving 5
+33: BUS: arrived to final
+34: L 1: going to ski
+35: L 2: going to ski
+36: BUS: leaving final
+37: L 4: started
+38: BUS: arrived to 1
+39: BUS: leaving 1
+40: L 4: arrived to 1
+41: BUS: arrived to 2
+42: BUS: leaving 2
+43: BUS: arrived to 3
+44: BUS: leaving 3
+45: BUS: arrived to 4
+46: L 3: boarding
+47: BUS: leaving 4
+48: BUS: arrived to 5
+49: BUS: leaving 5
+50: BUS: arrived to final
+51: L 5: started
+52: L 3: going to ski
+53: L 5: arrived to 5
+54: BUS: leaving final
+55: BUS: arrived to 1
+56: L 6: started
+57: L 4: boarding
+58: BUS: leaving 1
+59: BUS: arrived to 2
+60: L 6: arrived to 4
+61: BUS: leaving 2
+62: L 7: started
+63: BUS: arrived to 3
+64: BUS: leaving 3
+65: BUS: arrived to 4
+66: L 6: boarding
+67: BUS: leaving 4
+68: L 7: arrived to 3
+69: BUS: arrived to 5
+70: L 5: boarding
+71: BUS: leaving 5
+72: BUS: arrived to final
+73: L 8: started
+74: L 4: going to ski
+75: L 6: going to ski
+76: L 5: going to ski
+77: L 9: started
+78: L 8: arrived to 2
+79: BUS: leaving final
+80: L 9: arrived to 1
+81: BUS: arrived to 1
+82: BUS: leaving 1
+83: BUS: arrived to 2
+84: L 8: boarding
+85: BUS: leaving 2
+86: BUS: arrived to 3
+87: L 7: boarding
+88: BUS: leaving 3
+89: L 10: started
+90: L 10: arrived to 5
+91: BUS: arrived to 4
+92: BUS: leaving 4
+93: BUS: arrived to 5
+94: L 10: boarding
+95: BUS: leaving 5
+96: BUS: arrived to final
+97: L 11: started
+98: L 11: arrived to 2
+99: L 8: going to ski
+100: L 7: going to ski
+101: L 10: going to ski
+102: L 12: started
+103: BUS: leaving final
+104: L 12: arrived to 1
+105: BUS: arrived to 1
+106: L 9: boarding
+107: L 12: boarding
+108: BUS: leaving 1
+109: BUS: arrived to 2
+110: L 13: started
+111: L 11: boarding
+112: BUS: leaving 2
+113: L 13: arrived to 5
+114: L 14: started
+115: BUS: arrived to 3
+116: BUS: leaving 3
+117: L 14: arrived to 4
+118: BUS: arrived to 4
+119: BUS: leaving 4
+120: BUS: arrived to 5
+121: L 13: boarding
+122: L 15: started
+123: BUS: leaving 5
+124: BUS: arrived to final
+125: L 15: arrived to 3
+126: L 9: going to ski
+127: L 12: going to ski
+128: L 11: going to ski
+129: L 16: started
+130: L 13: going to ski
+131: L 16: arrived to 2
+132: BUS: leaving final
+133: BUS: arrived to 1
+134: BUS: leaving 1
+135: BUS: arrived to 2
+136: L 16: boarding
+137: BUS: leaving 2
+138: BUS: arrived to 3
+139: L 17: started
+140: L 15: boarding
+141: L 17: arrived to 1
+142: BUS: leaving 3
+143: BUS: arrived to 4
+144: L 14: boarding
+145: BUS: leaving 4
+146: L 18: started
+147: BUS: arrived to 5
+148: BUS: leaving 5
+149: BUS: arrived to final
+150: L 16: going to ski
+151: L 18: arrived to 5
+152: L 15: going to ski
+153: L 14: going to ski
+154: L 19: started
+155: BUS: leaving final
+156: L 19: arrived to 2
+157: BUS: arrived to 1
+158: L 17: boarding
+159: BUS: leaving 1
+160: BUS: arrived to 2
+161: L 20: started
+162: L 19: boarding
+163: BUS: leaving 2
+164: L 20: arrived to 1
+165: BUS: arrived to 3
+166: BUS: leaving 3
+167: L 21: started
+168: BUS: arrived to 4
+169: BUS: leaving 4
+170: BUS: arrived to 5
+171: L 18: boarding
+172: BUS: leaving 5
+173: BUS: arrived to final
+174: L 21: arrived to 5
+175: L 22: started
+176: L 17: going to ski
+177: L 19: going to ski
+178: L 23: started
+179: L 18: going to ski
+180: L 22: arrived to 4
+181: L 23: arrived to 3
+182: BUS: leaving final
+183: BUS: arrived to 1
+184: L 24: started
+185: L 20: boarding
+186: L 24: arrived to 2
+187: BUS: leaving 1
+188: BUS: arrived to 2
+189: L 24: boarding
+190: BUS: leaving 2
+191: BUS: arrived to 3
+192: L 23: boarding
+193: BUS: leaving 3
+194: BUS: arrived to 4
+195: L 25: started
+196: L 22: boarding
+197: L 26: started
+198: L 25: arrived to 1
+199: BUS: leaving 4
+200: L 26: arrived to 3
+201: BUS: arrived to 5
+202: L 27: started
+203: L 21: boarding
+204: L 27: arrived to 2
+205: BUS: leaving 5
+206: BUS: arrived to final
+207: L 20: going to ski
+208: L 24: going to ski
+209: L 23: going to ski
+210: L 22: going to ski
+211: L 28: started
+212: L 21: going to ski
+213: L 28: arrived to 1
+214: BUS: leaving final
+215: BUS: arrived to 1
+216: L 25: boarding
+217: L 28: boarding
+218: L 29: started
+219: BUS: leaving 1
+220: BUS: arrived to 2
+221: L 29: arrived to 5
+222: L 27: boarding
+223: BUS: leaving 2
+224: BUS: arrived to 3
+225: L 26: boarding
+226: BUS: leaving 3
+227: BUS: arrived to 4
+228: BUS: leaving 4
+229: BUS: arrived to 5
+230: L 30: started
+231: L 29: boarding
+232: BUS: leaving 5
+233: BUS: arrived to final
+234: L 30: arrived to 4
+235: L 25: going to ski
+236: L 28: going to ski
+237: L 31: started
+238: L 27: going to ski
+239: L 31: arrived to 3
+240: L 26: going to ski
+241: L 32: started
+242: L 29: going to ski
+243: L 32: arrived to 2
+244: BUS: leaving final
+245: BUS: arrived to 1
+246: BUS: leaving 1
+247: BUS: arrived to 2
+248: L 33: started
+249: L 32: boarding
+250: BUS: leaving 2
+251: BUS: arrived to 3
+252: L 31: boarding
+253: BUS: leaving 3
+254: L 33: arrived to 1
+255: L 35: started
+256: BUS: arrived to 4
+257: L 34: started
+258: L 35: arrived to 2
+259: L 30: boarding
+260: L 36: started
+261: BUS: leaving 4
+262: L 34: arrived to 3
+263: BUS: arrived to 5
+264: L 37: started
+265: BUS: leaving 5
+266: L 36: arrived to 1
+267: BUS: arrived to final
+268: L 32: going to ski
+269: L 38: started
+270: L 31: going to ski
+271: L 38: arrived to 4
+272: L 37: arrived to 5
+273: L 30: going to ski
+274: L 39: started
+275: BUS: leaving final
+276: L 39: arrived to 3
+277: BUS: arrived to 1
+278: L 33: boarding
+279: L 36: boarding
+280: BUS: leaving 1
+281: L 40: started
+282: BUS: arrived to 2
+283: L 35: boarding
+284: L 40: arrived to 2
+285: BUS: leaving 2
+286: BUS: arrived to 3
+287: L 34: boarding
+288: L 39: boarding
+289: BUS: leaving 3
+290: BUS: arrived to 4
+291: L 38: boarding
+292: BUS: leaving 4
+293: BUS: arrived to 5
+294: L 37: boarding
+295: BUS: leaving 5
+296: BUS: arrived to final
+297: L 33: going to ski
+298: L 36: going to ski
+299: L 35: going to ski
+300: L 34: going to ski
+301: L 41: started
+302: L 39: going to ski
+303: L 38: going to ski
+304: L 43: started
+305: L 41: arrived to 1
+306: L 37: going to ski
+307: L 43: arrived to 2
+308: BUS: leaving final
+309: L 42: started
+310: BUS: arrived to 1
+311: L 41: boarding
+312: BUS: leaving 1
+313: L 42: arrived to 3
+314: BUS: arrived to 2
+315: L 40: boarding
+316: L 43: boarding
+317: BUS: leaving 2
+318: BUS: arrived to 3
+319: L 42: boarding
+320: BUS: leaving 3
+321: BUS: arrived to 4
+322: BUS: leaving 4
+323: BUS: arrived to 5
+324: BUS: leaving 5
+325: BUS: arrived to final
+326: L 41: going to ski
+327: L 40: going to ski
+328: L 44: started
+329: L 43: going to ski
+330: L 45: started
+331: L 42: going to ski
+332: L 44: arrived to 1
+333: L 46: started
+334: L 45: arrived to 5
+335: BUS: leaving final
+336: L 46: arrived to 4
+337: BUS: arrived to 1
+338: L 44: boarding
+339: L 47: started
+340: BUS: leaving 1
+341: L 47: arrived to 3
+342: L 48: started
+343: BUS: arrived to 2
+344: BUS: leaving 2
+345: BUS: arrived to 3
+346: L 47: boarding
+347: BUS: leaving 3
+348: L 48: arrived to 2
+349: BUS: arrived to 4
+350: L 49: started
+351: L 46: boarding
+352: BUS: leaving 4
+353: BUS: arrived to 5
+354: L 50: started
+355: L 45: boarding
+356: L 49: arrived to 4
+357: BUS: leaving 5
+358: BUS: arrived to final
+359: L 44: going to ski
+360: L 50: arrived to 3
+361: L 47: going to ski
+362: L 46: going to ski
+363: L 45: going to ski
+364: BUS: leaving final
+365: L 51: started
+366: BUS: arrived to 1
+367: BUS: leaving 1
+368: BUS: arrived to 2
+369: L 48: boarding
+370: L 51: arrived to 2
+371: BUS: leaving 2
+372: L 52: started
+373: BUS: arrived to 3
+374: L 50: boarding
+375: BUS: leaving 3
+376: BUS: arrived to 4
+377: L 49: boarding
+378: BUS: leaving 4
+379: BUS: arrived to 5
+380: BUS: leaving 5
+381: BUS: arrived to final
+382: L 52: arrived to 1
+383: L 48: going to ski
+384: L 50: going to ski
+385: L 54: started
+386: L 53: started
+387: L 49: going to ski
+388: L 54: arrived to 4
+389: L 53: arrived to 5
+390: L 55: started
+391: BUS: leaving final
+392: BUS: arrived to 1
+393: L 55: arrived to 3
+394: L 52: boarding
+395: BUS: leaving 1
+396: BUS: arrived to 2
+397: L 51: boarding
+398: BUS: leaving 2
+399: BUS: arrived to 3
+400: L 55: boarding
+401: L 56: started
+402: BUS: leaving 3
+403: BUS: arrived to 4
+404: L 54: boarding
+405: BUS: leaving 4
+406: L 56: arrived to 2
+407: BUS: arrived to 5
+408: L 57: started
+409: L 53: boarding
+410: BUS: leaving 5
+411: L 58: started
+412: L 57: arrived to 4
+413: BUS: arrived to final
+414: L 58: arrived to 3
+415: L 59: started
+416: L 52: going to ski
+417: L 51: going to ski
+418: L 59: arrived to 2
+419: L 55: going to ski
+420: L 60: started
+421: L 54: going to ski
+422: L 53: going to ski
+423: L 60: arrived to 1
+424: BUS: leaving final
+425: BUS: arrived to 1
+426: L 60: boarding
+427: BUS: leaving 1
+428: L 61: started
+429: BUS: arrived to 2
+430: L 62: started
+431: L 56: boarding
+432: L 59: boarding
+433: BUS: leaving 2
+434: L 61: arrived to 5
+435: BUS: arrived to 3
+436: L 62: arrived to 4
+437: L 58: boarding
+438: L 63: started
+439: BUS: leaving 3
+440: BUS: arrived to 4
+441: L 57: boarding
+442: L 62: boarding
+443: BUS: leaving 4
+444: BUS: arrived to 5
+445: L 61: boarding
+446: BUS: leaving 5
+447: BUS: arrived to final
+448: L 63: arrived to 3
+449: L 64: started
+450: L 60: going to ski
+451: L 56: going to ski
+452: L 59: going to ski
+453: L 64: arrived to 5
+454: L 58: going to ski
+455: L 65: started
+456: L 57: going to ski
+457: L 62: going to ski
+458: L 61: going to ski
+459: L 66: started
+460: L 65: arrived to 4
+461: BUS: leaving final
+462: BUS: arrived to 1
+463: BUS: leaving 1
+464: L 66: arrived to 3
+465: L 67: started
+466: BUS: arrived to 2
+467: L 67: arrived to 2
+468: BUS: leaving 2
+469: BUS: arrived to 3
+470: L 63: boarding
+471: L 66: boarding
+472: BUS: leaving 3
+473: BUS: arrived to 4
+474: L 65: boarding
+475: BUS: leaving 4
+476: BUS: arrived to 5
+477: L 64: boarding
+478: BUS: leaving 5
+479: BUS: arrived to final
+480: L 63: going to ski
+481: L 66: going to ski
+482: L 65: going to ski
+483: L 64: going to ski
+484: L 68: started
+485: L 68: arrived to 1
+486: BUS: leaving final
+487: BUS: arrived to 1
+488: L 68: boarding
+489: BUS: leaving 1
+490: BUS: arrived to 2
+491: L 67: boarding
+492: L 69: started
+493: BUS: leaving 2
+494: L 69: arrived to 5
+495: BUS: arrived to 3
+496: L 70: started
+497: BUS: leaving 3
+498: L 70: arrived to 4
+499: BUS: arrived to 4
+500: L 71: started
+501: BUS: leaving 4
+502: BUS: arrived to 5
+503: L 69: boarding
+504: BUS: leaving 5
+505: L 71: arrived to 3
+506: BUS: arrived to final
+507: L 68: going to ski
+508: L 72: started
+509: L 67: going to ski
+510: L 69: going to ski
+511: L 72: arrived to 5
+512: L 73: started
+513: BUS: leaving final
+514: L 73: arrived to 4
+515: BUS: arrived to 1
+516: BUS: leaving 1
+517: BUS: arrived to 2
+518: BUS: leaving 2
+519: BUS: arrived to 3
+520: L 74: started
+521: L 71: boarding
+522: BUS: leaving 3
+523: BUS: arrived to 4
+524: L 70: boarding
+525: L 73: boarding
+526: L 74: arrived to 3
+527: BUS: leaving 4
+528: BUS: arrived to 5
+529: L 72: boarding
+530: BUS: leaving 5
+531: BUS: arrived to final
+532: L 75: started
+533: L 71: going to ski
+534: L 70: going to ski
+535: L 75: arrived to 2
+536: L 76: started
+537: L 73: going to ski
+538: L 72: going to ski
+539: L 76: arrived to 1
+540: L 77: started
+541: BUS: leaving final
+542: L 78: started
+543: BUS: arrived to 1
+544: L 76: boarding
+545: L 77: arrived to 5
+546: BUS: leaving 1
+547: BUS: arrived to 2
+548: L 75: boarding
+549: BUS: leaving 2
+550: BUS: arrived to 3
+551: L 74: boarding
+552: L 78: arrived to 4
+553: BUS: leaving 3
+554: L 79: started
+555: BUS: arrived to 4
+556: L 78: boarding
+557: BUS: leaving 4
+558: BUS: arrived to 5
+559: L 77: boarding
+560: BUS: leaving 5
+561: BUS: arrived to final
+562: L 76: going to ski
+563: L 79: arrived to 3
+564: L 75: going to ski
+565: L 80: started
+566: L 74: going to ski
+567: L 78: going to ski
+568: L 77: going to ski
+569: L 82: started
+570: L 80: arrived to 5
+571: L 81: started
+572: L 82: arrived to 3
+573: L 81: arrived to 4
+574: BUS: leaving final
+575: BUS: arrived to 1
+576: BUS: leaving 1
+577: L 83: started
+578: BUS: arrived to 2
+579: BUS: leaving 2
+580: BUS: arrived to 3
+581: L 83: arrived to 2
+582: L 79: boarding
+583: L 82: boarding
+584: BUS: leaving 3
+585: L 84: started
+586: BUS: arrived to 4
+587: BUS: leaving 4
+588: BUS: arrived to 5
+589: L 81: boarding
+590: L 80: boarding
+591: L 84: arrived to 1
+592: BUS: leaving 5
+593: L 85: started
+594: BUS: arrived to final
+595: L 86: started
+596: L 85: arrived to 5
+597: L 82: going to ski
+598: L 79: going to ski
+599: L 86: arrived to 4
+600: L 81: going to ski
+601: L 87: started
+602: L 80: going to ski
+603: L 87: arrived to 1
+604: L 88: started
+605: BUS: leaving final
+606: L 88: arrived to 5
+607: BUS: arrived to 1
+608: BUS: leaving 1
+609: BUS: arrived to 2
+610: L 84: boarding
+611: L 83: boarding
+612: L 89: started
+613: L 87: boarding
+614: BUS: leaving 2
+615: BUS: arrived to 3
+616: BUS: leaving 3
+617: BUS: arrived to 4
+618: BUS: leaving 4
+619: BUS: arrived to 5
+620: L 86: boarding
+621: L 89: arrived to 4
+622: L 85: boarding
+623: BUS: leaving 5
+624: L 90: started
+625: L 88: boarding
+626: BUS: arrived to final
+627: L 84: going to ski
+628: L 83: going to ski
+629: L 90: arrived to 3
+630: L 87: going to ski
+631: L 91: started
+632: L 86: going to ski
+633: L 85: going to ski
+634: L 88: going to ski
+635: L 91: arrived to 2
+636: BUS: leaving final
+637: L 92: started
+638: BUS: arrived to 1
+639: BUS: leaving 1
+640: BUS: arrived to 2
+641: L 92: arrived to 1
+642: BUS: leaving 2
+643: L 91: boarding
+644: BUS: arrived to 3
+645: BUS: leaving 3
+646: L 90: boarding
+647: BUS: arrived to 4
+648: BUS: leaving 4
+649: L 89: boarding
+650: L 93: started
+651: BUS: arrived to 5
+652: BUS: leaving 5
+653: BUS: arrived to final
+654: L 91: going to ski
+655: L 93: arrived to 5
+656: L 90: going to ski
+657: L 94: started
+658: L 89: going to ski
+659: BUS: leaving final
+660: L 94: arrived to 4
+661: BUS: arrived to 1
+662: BUS: leaving 1
+663: L 92: boarding
+664: BUS: arrived to 2
+665: BUS: leaving 2
+666: BUS: arrived to 3
+667: BUS: leaving 3
+668: BUS: arrived to 4
+669: BUS: leaving 4
+670: BUS: arrived to 5
+671: L 94: boarding
+672: L 95: started
+673: L 93: boarding
+674: BUS: leaving 5
+675: L 95: arrived to 1
+676: BUS: arrived to final
+677: L 96: started
+678: L 96: arrived to 5
+679: L 92: going to ski
+680: L 94: going to ski
+681: L 93: going to ski
+682: BUS: leaving final
+683: BUS: arrived to 1
+684: BUS: leaving 1
+685: L 95: boarding
+686: BUS: arrived to 2
+687: L 97: started
+688: BUS: leaving 2
+689: L 97: arrived to 4
+690: L 98: started
+691: BUS: arrived to 3
+692: BUS: leaving 3
+693: BUS: arrived to 4
+694: BUS: leaving 4
+695: BUS: arrived to 5
+696: L 97: boarding
+697: L 96: boarding
+698: L 98: arrived to 3
+699: BUS: leaving 5
+700: BUS: arrived to final
+701: L 95: going to ski
+702: L 97: going to ski
+703: L 99: started
+704: L 100: started
+705: L 96: going to ski
+706: L 99: arrived to 2
+707: L 100: arrived to 1
+708: BUS: leaving final
+709: BUS: arrived to 1
+710: L 101: started
+711: BUS: leaving 1
+712: L 100: boarding
+713: BUS: arrived to 2
+714: L 102: started
+715: L 101: arrived to 5
+716: BUS: leaving 2
+717: L 99: boarding
+718: BUS: arrived to 3
+719: BUS: leaving 3
+720: L 102: arrived to 2
+721: L 98: boarding
+722: BUS: arrived to 4
+723: L 103: started
+724: BUS: leaving 4
+725: BUS: arrived to 5
+726: BUS: leaving 5
+727: BUS: arrived to final
+728: L 101: boarding
+729: L 103: arrived to 1
+730: L 104: started
+731: L 100: going to ski
+732: L 104: arrived to 5
+733: L 99: going to ski
+734: L 98: going to ski
+735: L 105: started
+736: L 101: going to ski
+737: BUS: leaving final
+738: L 105: arrived to 4
+739: L 106: started
+740: BUS: arrived to 1
+741: BUS: leaving 1
+742: L 103: boarding
+743: BUS: arrived to 2
+744: BUS: leaving 2
+745: L 102: boarding
+746: BUS: arrived to 3
+747: BUS: leaving 3
+748: BUS: arrived to 4
+749: BUS: leaving 4
+750: L 107: started
+751: L 105: boarding
+752: BUS: arrived to 5
+753: L 106: arrived to 3
+754: BUS: leaving 5
+755: L 104: boarding
+756: BUS: arrived to final
+757: L 107: arrived to 2
+758: L 108: started
+759: L 103: going to ski
+760: L 102: going to ski
+761: L 105: going to ski
+762: L 104: going to ski
+763: L 109: started
+764: L 108: arrived to 1
+765: BUS: leaving final
+766: BUS: arrived to 1
+767: L 109: arrived to 5
+768: BUS: leaving 1
+769: L 108: boarding
+770: BUS: arrived to 2
+771: L 110: started
+772: BUS: leaving 2
+773: L 107: boarding
+774: BUS: arrived to 3
+775: L 110: arrived to 2
+776: L 111: started
+777: BUS: leaving 3
+778: L 106: boarding
+779: BUS: arrived to 4
+780: L 112: started
+781: L 111: arrived to 1
+782: BUS: leaving 4
+783: BUS: arrived to 5
+784: L 112: arrived to 5
+785: BUS: leaving 5
+786: L 109: boarding
+787: BUS: arrived to final
+788: L 112: boarding
+789: L 113: started
+790: L 108: going to ski
+791: L 107: going to ski
+792: L 113: arrived to 4
+793: L 106: going to ski
+794: L 109: going to ski
+795: L 114: started
+796: L 112: going to ski
+797: L 114: arrived to 3
+798: BUS: leaving final
+799: BUS: arrived to 1
+800: BUS: leaving 1
+801: BUS: arrived to 2
+802: L 111: boarding
+803: L 110: boarding
+804: L 115: started
+805: BUS: leaving 2
+806: BUS: arrived to 3
+807: BUS: leaving 3
+808: L 114: boarding
+809: BUS: arrived to 4
+810: BUS: leaving 4
+811: L 113: boarding
+812: L 115: arrived to 2
+813: BUS: arrived to 5
+814: BUS: leaving 5
+815: BUS: arrived to final
+816: L 111: going to ski
+817: L 110: going to ski
+818: L 116: started
+819: L 114: going to ski
+820: L 113: going to ski
+821: L 116: arrived to 1
+822: BUS: leaving final
+823: L 117: started
+824: BUS: arrived to 1
+825: BUS: leaving 1
+826: BUS: arrived to 2
+827: L 116: boarding
+828: L 115: boarding
+829: BUS: leaving 2
+830: L 117: arrived to 5
+831: BUS: arrived to 3
+832: BUS: leaving 3
+833: BUS: arrived to 4
+834: BUS: leaving 4
+835: BUS: arrived to 5
+836: BUS: leaving 5
+837: BUS: arrived to final
+838: L 117: boarding
+839: L 116: going to ski
+840: L 115: going to ski
+841: L 117: going to ski
+842: L 118: started
+843: BUS: leaving final
+844: BUS: arrived to 1
+845: L 118: arrived to 2
+846: BUS: leaving 1
+847: BUS: arrived to 2
+848: BUS: leaving 2
+849: L 118: boarding
+850: BUS: arrived to 3
+851: BUS: leaving 3
+852: L 119: started
+853: BUS: arrived to 4
+854: BUS: leaving 4
+855: BUS: arrived to 5
+856: BUS: leaving 5
+857: L 120: started
+858: BUS: arrived to final
+859: L 119: arrived to 1
+860: L 118: going to ski
+861: BUS: leaving final
+862: L 120: arrived to 5
+863: L 121: started
+864: BUS: arrived to 1
+865: BUS: leaving 1
+866: L 119: boarding
+867: BUS: arrived to 2
+868: BUS: leaving 2
+869: BUS: arrived to 3
+870: L 121: arrived to 4
+871: BUS: leaving 3
+872: BUS: arrived to 4
+873: BUS: leaving 4
+874: BUS: arrived to 5
+875: L 121: boarding
+876: BUS: leaving 5
+877: L 120: boarding
+878: BUS: arrived to final
+879: L 119: going to ski
+880: L 121: going to ski
+881: L 120: going to ski
+882: BUS: leaving final
+883: BUS: finish
