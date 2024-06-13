@@ -1,0 +1,702 @@
+/* Style for page */
+/*Green color: rgb(100, 255, 218) */
+
+/* Animations and stuff like that */
+@keyframes typing {
+    from { width: 0 } 
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    0%, 50% { border-color: rgb(100, 255, 218); } 
+    51%, 100% { border-color: transparent; } 
+}
+
+@keyframes revealFromTop {
+    from {
+        transform: translateY(100%); 
+        opacity: 0; 
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes loadingPercens {
+    0% {
+        width: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+  }
+
+/* END of animations and stuff like that */
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    background-color: rgb(10, 25, 47);
+    color: rgb(204, 214, 246);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Header + navbar */
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 1.3rem;
+    padding-left: 10%;
+    padding-right: 3.5rem;
+    display: flex;
+    align-items: baseline;
+    z-index: 999;
+    justify-content: space-between; 
+}
+.highlight{
+    color: rgb(100, 255, 218);
+}
+
+.MyLogo{
+    font-size: 2rem;
+    color: rgb(204, 214, 246);
+    text-decoration: none;
+    font-weight: 900;
+}
+.nav-menu{
+    margin-left: 1em;
+}
+.nav-menu a {
+    font-size: 1.15rem;
+    color: rgb(204, 214, 246);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+.nav-menu a:hover {
+    font-size: 1.2rem;
+    color: rgb(100, 255, 218);
+    transition: 0.3s;
+}
+
+#click{
+    display: none;
+}
+
+.hamburger{
+    position: absolute;
+    right: 1rem;
+    font-size: 2.8rem;
+    color: rgb(204, 214, 246);
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger #close-hamburger{
+    display: none;
+}
+.socials{
+    font-size: 1.4rem;
+    color: rgb(204, 214, 246);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: auto;
+}
+.socials a{
+    font-size: 1.5rem;
+    color: rgb(204, 214, 246);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+.socials .textlanguage{
+    font-size: 1.1rem;
+    font-style: normal;
+}
+
+.socials a i:hover {
+    font-size: 1.55rem;
+    color: rgb(100, 255, 218);
+    transition: 0.3s;
+}
+
+/* END of header + navbar */
+
+
+main {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%;
+}
+
+/* Home section */  
+.home{
+    position: absolute;
+    top: 20rem;
+    text-align: center;
+}
+.home h1{
+    font-size: 3rem;
+    display: inline-block;
+    animation: typing 3s steps(30, end), blink-caret 0.5s infinite alternate;
+    overflow: hidden;
+    text-wrap: nowrap;
+    border-right: 4px solid;
+}
+.home h2{
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: rgb(204, 214, 246);
+    animation: revealFromTop 2s ease forwards;
+}
+.home p{
+    position: absolute;
+    width: 145%;
+    margin-left: -7.5rem;
+    padding-top: 1rem;
+    text-align: justify;
+    opacity: 0.1;
+    animation: revealFromTop 2s ease forwards;
+}
+
+/* END of home section */  
+
+/* About section */  
+
+.about{
+    position: absolute;
+    top: 50rem;
+    width: 70%;
+    animation: revealFromTop 3s ease forwards;
+}
+.about h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
+.about .about-content{
+    position: relative;
+    display: grid;
+    margin-top: 4rem;
+    grid-template-rows: auto auto;
+    grid-column-gap: 5rem;
+    grid-template-areas:
+      "picture content"
+      "picture content"
+      "picture links";
+}
+.about .about-content img{
+    grid-area: picture;
+    width: 28rem;
+    border-radius: 2.5rem;
+    box-shadow: -5px 5px 10px rgba(204, 214, 246,0.7);
+    opacity: 0.8;
+}
+.about .about-content .about-text{
+    grid-area: content;
+}
+.about .about-content h2{
+    font-size: 2.5rem;
+    color: rgb(100, 255, 218);
+    text-align: center;
+}
+.about .about-content .about-text p{
+    font-size: 1.25rem;
+    margin-top: 3rem;
+    text-align: justify;
+    
+}
+.about .about-content .links{
+    grid-area: links;
+    text-align: center;
+    margin: auto;
+    top: 0;
+    margin-top: -2rem;
+}
+.about .about-content .links a{
+    text-decoration: none;
+    margin-bottom: auto;
+    font-size: 1.7rem;
+    border: 4px solid rgb(204, 214, 246);
+    padding: 1rem 2rem;
+    display: inline-block; 
+}
+.about .about-content .links a:hover{
+    color: rgb(100, 255, 218);
+    border: 4px solid rgb(100, 255, 218);
+    transition: 0.3s ease-in;
+}
+
+/* END of about section */  
+
+/* Experience section */  
+
+.experience{
+    position: absolute;
+    top: 120rem;
+    width: 70%;
+    animation: revealFromTop 3s ease forwards;
+}
+.experience h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
+.experience p{
+    font-size: 1.25rem;
+    text-align: justify;
+}
+.experience .experience-content{
+    margin-top: 3rem
+}
+.experience .programming-languages{
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    /*border: 4px solid rgb(204, 214, 246);*/
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(2, auto); 
+    gap: 1em;
+}
+
+.experience .programming-languages .programming-skill{
+    width: 100%;
+    height: 4.6rem;
+    border: 2px solid rgb(204, 214, 246);
+    border-radius: 15px;
+    z-index: 2;
+}
+.experience .programming-languages .programming-skill .Language{
+    font-size: 1.2rem;
+    position: absolute;
+    align-items: center;
+    padding-top: 0.4em;
+    padding-left: 0.8em;
+    background: none;
+    z-index: 0;
+}
+.experience .programming-languages .programming-skill .programming-skill-bar{
+    position: absolute;
+    background-color: rgb(204, 214, 246);
+    height: 0.4rem;
+    width: 20%;
+    margin: 2.25rem 1em;
+    z-index: 0;
+    border-radius: 5px;
+}
+.experience .programming-languages .programming-skill #languageC{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 90%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languageHTML{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 95%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languageCSS{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 70%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languageShell{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 45%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languageLatex{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 80%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languageCs{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 35%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languagePython{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 50%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill #languageJavascript{
+    position: absolute;
+    background-color: rgb(100, 255, 218);
+    height: 0.4rem;
+    width: 30%;
+    border-radius: 5px;
+    animation: loadingPercens 2s linear forwards;
+}
+.experience .programming-languages .programming-skill .programming-skill-bar .percents{
+    position: absolute;
+    background: none;
+    right: -5%;
+    top: 106%;
+}
+
+/* END of experience section */  
+
+/* Education section */
+.education{
+    position: absolute;
+    top: 165rem;
+    width: 70%;
+    animation: revealFromTop 3s ease forwards;
+}
+.education h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
+.education .education-content{
+    margin-top: 2rem;
+}
+.education .education-content p{
+    font-size: 1.25rem;
+    text-align: justify;
+}
+.education .education-content .education-container{
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+.education .education-content .education-container h4{
+    margin: 0.5em 0;
+    font-weight: 100;
+}
+.education .education-content .education-container ul{
+    margin: 0.8rem 2.5rem;
+    list-style-type: circle;
+}
+.education .education-content .education-container .school a, h2{
+    color: rgb(100, 255, 218);
+    text-decoration: none;
+}
+.education .education-content .education-container .school a h2:hover{
+    color: rgb(204, 214, 246);
+    text-decoration: underline;
+    transition: 0.4s ease-in;
+}
+.education .education-content .education-container .school:nth-child(2){
+    margin-top: 2.5rem;
+}
+.education .education-content .education-container .school .education-project{
+    
+    margin-top: 1.5rem;
+    height: 3rem;
+    border: 2px solid rgb(204, 214, 246);
+    border-radius: 15px;
+    text-align: center;
+    align-items: center;
+    width: 12rem;
+}
+.education .education-content .education-container .school .education-project p{
+    background: none;
+    text-align: center;
+    margin-top: 0.5em;
+}
+.education .education-content .education-container .school .education-project p a{
+    color: rgb(204, 214, 246);
+    text-decoration: none;
+}
+
+/* END of Education section */
+
+/* Portfolio section */
+
+.portfolio{
+    position: absolute;
+    top: 223rem;
+    width: 70%;
+    animation: revealFromTop 3s ease forwards;
+}
+.portfolio h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
+.portfolio .portfolio-project{
+    margin-top: 2rem;
+    position: relative;
+    max-width: 70rem;
+    display: flex;
+    aspect-ratio: 16/9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    border-radius: 2rem;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.portfolio .portfolio-project a{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    max-width: 70rem;
+    opacity: 0.4;
+    width: 100%;
+}
+.portfolio .portfolio-project a img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    max-width: 70rem;
+    width: 100%;
+    height: 100%;
+}
+.portfolio .portfolio-project img:hover{
+    transition: 0.3s ease-in-out;
+}
+.portfolio .portfolio-controler {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    width: auto;
+    height: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 95%;
+    background: none;
+}
+.portfolio .portfolio-controler a{
+    width: 1em;
+    height: 1em;
+    margin: 0 1em;
+    background-color: white;
+    border-radius: 50%; 
+}
+.portfolio .portfolio-controler a:hover{
+    width: 1.2em;
+    height: 1.2em;
+    background-color: rgb(156, 164, 189); 
+    transition: 0.3s ease-in-out;
+}
+.portfolio .portfolio-text p{
+    position: absolute;
+    background: none;
+    text-align: center;
+    text-align: justify;
+    margin-top: 2em;
+    font-size: 1.25rem;
+}
+
+/* END of portfolio section */
+
+/* Footer section */
+footer{
+    border-top: 0.5px solid rgb(204, 214, 246);
+    position: absolute;
+    top: 284rem;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1.2rem;
+}
+footer .footer-content h3{
+    margin: 1.2em 0;
+    color: rgb(100, 255, 218);
+}
+footer .footer-content p{
+    margin: .7em 0;
+}
+footer .footer-content .socialss{
+    margin: .7em 0;
+    font-size: 1.7rem;
+}
+footer .footer-content .socialss a{
+    margin: .7em .25em;
+}
+footer .footer-content .socialss i:hover{
+    color: rgb(100, 255, 218);
+    transition: .3s ease-in-out;
+}
+footer .footer-buttom span{
+    color: rgb(100, 255, 218);
+    font-weight: 100;
+}
+/* END of footer section */
+
+
+/* Media query, breaking points */
+
+@media (max-width: 992px){
+    .header{
+        padding: 1.5rem 5%;
+    }
+    .about .about-content img{
+        width: 24rem;
+    } 
+    .about .about-content .about-text p{
+        font-size: 1.1rem;
+    }
+    .experience {
+        width: 90%;
+    }
+    .experience .programming-languages .programming-skill .programming-skill-bar{
+        width: 18%;
+    }
+    .education{
+        width: 90%;
+    }
+    .portfolio{
+        width: 90%;
+    }
+}
+@media (max-width: 1250px){
+    .about .about-content .links{
+        margin-top: 2rem;
+    }
+}
+@media (max-width: 1200px){
+    .about {
+        width: 90%;
+    }
+    
+}
+
+@media (max-width: 768px){
+    #click:checked~.hamburger #hamburger-icon{
+        display: none;
+    }
+
+    .hamburger{
+        display: inline-flex;
+    }
+    .nav-menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .nav-menu a{
+        display: block;
+        font-size: 1.2rem;
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+    .socials{
+        position: absolute;
+        top: 20rem;
+        left: 2%;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+
+    }
+    .socials a{
+        display: inline-block;
+        font-size: 2rem;
+        margin: 1rem 0.5rem;
+        text-align: center;
+    }
+    #click:checked~.hamburger #close-hamburger{
+        display: block;
+    }
+
+    #click:checked~.nav-menu{
+        height: 17.7rem;
+    }
+    #click:checked~.socials{
+        height: 17.7rem;
+    }
+    .home p{
+        width: 33rem;
+        margin-left: -2rem;
+    }
+
+    .about .about-content img{
+        display: none;
+    } 
+    .about .about-content{
+        margin-top: 4rem;
+        grid-template-rows: auto auto;
+        grid-column-gap: 5rem;
+        grid-template-areas:
+          "content"
+          "links";
+    }
+    .about .about-content .about-text p{
+        font-size: 1.4rem;
+        padding: 0 1rem;
+    }
+    .about .about-content .links a{
+        font-size: 1.8rem;
+    }
+    .experience .programming-languages{
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(4, auto); 
+    }
+    .experience .programming-languages .programming-skill .programming-skill-bar{
+        width: 42%;
+    }
+    .education{
+        top: 170rem;
+    }
+    .portfolio{
+        top: 232rem;
+        width: 90%;
+    }
+    footer{
+        top: 264rem;
+    }
+    .portfolio .portfolio-project{
+        overflow: scroll;
+    }
+    .portfolio .portfolio-controler a{
+        width: .5em;
+        height: .5em;
+        margin: 0 0.5em;
+    }
+
+}
+@media (max-width: 550px){
+    .home{
+        width: 100%;
+    }
+    .home .home-text p{
+        width: 100%;
+        margin-top: 2rem;
+        margin-left: 0;
+        padding: 0 1em;
+    }
+    .home h1{
+        font-size: 2rem;
+    }
+    .education{
+        top: 190rem;
+    }
+    .portfolio{
+        top: 265rem;
+    }
+    footer{
+        top: 300rem;
+    }
+}
